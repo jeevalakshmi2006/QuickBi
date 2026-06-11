@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner - QuickBI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body { display: flex; flex-direction: column; height: 100vh; background: #FADADD; margin: 0; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #FF69B4; color: white; }
+        .header-left { display: flex; align-items: center; gap: 10px; }
+        .company-name { font-size: 20px; font-weight: bold; }
+        .back-btn { font-size: 18px; color: white; cursor: pointer; }
+        .icons { display: flex; gap: 15px; }
+        .icons i { font-size: 20px; cursor: pointer; }
+        
+        .scanner-container { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        
+        .scanner-box, .upload-box {
+            background: #FF69B4;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(255, 182, 193, 0.5);
+            color: white;
+            font-weight: bold;
+            position: relative;
+            width: 90%;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+        
+        .scanner-box img, .upload-box img { 
+            width: 80px; 
+            position: absolute; 
+            top: -40px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+        }
+        
+        .scan-btn, .upload-btn { 
+            margin-top: 20px; 
+            padding: 10px 20px; 
+            background: white; 
+            color: #FF69B4; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+        }
+        
+        .scan-btn:hover, .upload-btn:hover { 
+            background: #FF1493; 
+            color: white; 
+        }
+
+        video { 
+            display: none; 
+            width: 100%; 
+            max-width: 400px; 
+            margin-top: 20px; 
+            border-radius: 10px; 
+        }
+        
+        /* Drag & Upload Component */
+        .upload-box { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 20px; }
+        .drop-zone { 
+            width: 100%; 
+            height: 150px; 
+            border: 2px dashed white; 
+            border-radius: 10px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            cursor: pointer; 
+            margin-top: 15px; 
+        }
+        .drop-zone p { color: white; font-size: 16px; }
+        #uploadedImage { 
+            display: none; 
+            width: 100%; 
+            max-width: 300px; 
+            margin-top: 15px; 
+            border-radius: 10px; 
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .scanner-box, .upload-box {
+                padding: 30px;
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <i class="fas fa-arrow-left back-btn" onclick="window.location.href='ds.html'"></i>
+            <span class="company-name">QuickBI</span>
+        </div>
+        <div class="icons">
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-user-circle"></i>
+        </div>
+    </header>
+    
+    <div class="scanner-container">
+        <!-- Scanner Section -->
+        <div class="scanner-box">
+            <img src="https://cdn-icons-png.flaticon.com/512/709/709699.png" alt="Scanner Sticker">
+            <h2>Scan Your Document</h2>
+            <p>Use your camera or upload a file to scan documents easily.</p>
+            <button class="scan-btn" onclick="startCamera()">Start Scanning</button>
+            <video id="cameraView" autoplay></video>
+        </div>
+
+        <!-- Upload Section -->
+        <div class="upload-box">
+            <img src="https://cdn-icons-png.flaticon.com/512/2292/2292596.png" alt="Upload Sticker">
+            <h2>Upload an Image</h2>
+            <div class="drop-zone" id="dropZone">
+                <p>Drag & Drop or Click to Upload</p>
+            </div>
+            <input type="file" id="fileInput" accept="image/*" hidden>
+            <img id="uploadedImage" alt="Uploaded Image Preview">
+        </div>
+    </div>
+
+    <script>
+        function startCamera() {
+            const video = document.getElementById('cameraView');
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    video.style.display = 'block';
+                    video.srcObject = stream;
+                })
+                .catch(error => {
+                    alert("Camera access denied or not available.");
+                    console.error("Error accessing camera:", error);
+                });
+        }
+
+        // Drag & Drop Upload Functionality
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const uploadedImage = document.getElementById('uploadedImage');
+
+        dropZone.addEventListener('click', () => fileInput.click());
+
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            previewImage(file);
+        });
+
+        dropZone.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            dropZone.style.border = "2px dashed #FFF";
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.style.border = "2px dashed white";
+        });
+
+        dropZone.addEventListener('drop', (event) => {
+            event.preventDefault();
+            dropZone.style.border = "2px dashed white";
+            const file = event.dataTransfer.files[0];
+            previewImage(file);
+        });
+
+        function previewImage(file) {
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    uploadedImage.src = reader.result;
+                    uploadedImage.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert("Please upload a valid image file.");
+            }
+        }
+    </script>
+</body>
+</html>

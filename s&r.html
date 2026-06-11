@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales & Revenue - QuickBI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body { display: flex; flex-direction: column; height: 100vh; background: #FADADD; overflow-y: auto; font-family: 'Rubik', sans-serif; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #FF69B4; color: white; }
+        .header-left { display: flex; align-items: center; gap: 10px; }
+        .company-name { font-size: 22px; font-weight: bold; }
+        .back-btn { font-size: 20px; color: white; cursor: pointer; }
+        .icons { display: flex; gap: 15px; }
+        .icons i { font-size: 22px; cursor: pointer; }
+
+        .sales-container { display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .sales-box { background: #FF69B4; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(255, 105, 180, 0.5); color: white; font-weight: bold; width: 80%; text-align: center; margin-bottom: 20px; }
+        .sales-data { display: flex; justify-content: space-around; width: 80%; margin-top: 20px; }
+        .data-card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); text-align: center; width: 30%; }
+        .data-card h3 { margin-bottom: 10px; color: #FF69B4; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <i class="fas fa-arrow-left back-btn" onclick="window.location.href='ds.html'"></i>
+            <span class="company-name">QuickBI</span>
+        </div>
+        <div class="icons">
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-user-circle"></i>
+        </div>
+    </header>
+    
+    <div class="sales-container">
+        <div class="sales-box">
+            <h2>Sales & Revenue</h2>
+            <p>Track your business revenue and sales trends with real-time data.</p>
+        </div>
+        
+        <div class="sales-data">
+            <div class="data-card">
+                <h3>Monthly Sales</h3>
+                <p>$45,000</p>
+            </div>
+            <div class="data-card">
+                <h3>Annual Revenue</h3>
+                <p>$540,000</p>
+            </div>
+            <div class="data-card">
+                <h3>Top-Selling Product</h3>
+                <p>Wireless Earbuds</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

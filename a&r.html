@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics & Reports - QuickBI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body { display: flex; flex-direction: column; height: 100vh; background: #FADADD; overflow-y: auto; font-family: 'Rubik', sans-serif; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #FF69B4; color: white; }
+        .header-left { display: flex; align-items: center; gap: 10px; }
+        .company-name { font-size: 22px; font-weight: bold; }
+        .back-btn { font-size: 20px; color: white; cursor: pointer; }
+        .icons { display: flex; gap: 15px; }
+        .icons i { font-size: 22px; cursor: pointer; }
+        
+        .analytics-container { display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .analytics-box { background: #FF69B4; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(255, 105, 180, 0.5); color: white; font-weight: bold; width: 80%; text-align: center; margin-bottom: 20px; }
+        .data-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; width: 80%; margin-top: 20px; }
+        .data-card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); text-align: center; }
+        .data-card h3 { margin-bottom: 10px; color: #FF69B4; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <i class="fas fa-arrow-left back-btn" onclick="window.location.href='ds.html'"></i>
+            <span class="company-name">QuickBI</span>
+        </div>
+        <div class="icons">
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-user-circle"></i>
+        </div>
+    </header>
+    
+    <div class="analytics-container">
+        <div class="analytics-box">
+            <h2>Analytics & Reports</h2>
+            <p>Gain deep insights into your business performance with real-time analytics and detailed reports.</p>
+        </div>
+        
+        <div class="data-section">
+            <div class="data-card">
+                <h3>Total Sales</h3>
+                <p>$150,000</p>
+            </div>
+            <div class="data-card">
+                <h3>Customer Visits</h3>
+                <p>12,345</p>
+            </div>
+            <div class="data-card">
+                <h3>Top-Selling Product</h3>
+                <p>Organic Apples</p>
+            </div>
+            <div class="data-card">
+                <h3>Revenue Growth</h3>
+                <p>8.5% Increase</p>
+            </div>
+            <div class="data-card">
+                <h3>Average Order Value</h3>
+                <p>$45.60</p>
+            </div>
+            <div class="data-card">
+                <h3>Conversion Rate</h3>
+                <p>5.2%</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

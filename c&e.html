@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers & Engagement - QuickBI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body { display: flex; flex-direction: column; height: 100vh; background: #FADADD; overflow-y: auto; font-family: 'Rubik', sans-serif; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #FF69B4; color: white; }
+        .header-left { display: flex; align-items: center; gap: 10px; }
+        .company-name { font-size: 22px; font-weight: bold; }
+        .back-btn { font-size: 20px; color: white; cursor: pointer; }
+        .icons { display: flex; gap: 15px; }
+        .icons i { font-size: 22px; cursor: pointer; }
+        
+        .engagement-container { display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .engagement-box { background: #FF69B4; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(255, 105, 180, 0.5); color: white; font-weight: bold; width: 80%; text-align: center; margin-bottom: 20px; }
+        .data-section { display: flex; justify-content: space-around; width: 80%; margin-top: 20px; }
+        .data-card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); text-align: center; width: 30%; }
+        .data-card h3 { margin-bottom: 10px; color: #FF69B4; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <i class="fas fa-arrow-left back-btn" onclick="window.location.href='ds.html'"></i>
+            <span class="company-name">QuickBI</span>
+        </div>
+        <div class="icons">
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-user-circle"></i>
+        </div>
+    </header>
+    
+    <div class="engagement-container">
+        <div class="engagement-box">
+            <h2>Customers & Engagement</h2>
+            <p>Analyze customer interactions and engagement levels to improve relationships and retention.</p>
+        </div>
+        
+        <div class="data-section">
+            <div class="data-card">
+                <h3>Active Users</h3>
+                <p>5,678</p>
+            </div>
+            <div class="data-card">
+                <h3>New Sign-ups</h3>
+                <p>1,234</p>
+            </div>
+            <div class="data-card">
+                <h3>Retention Rate</h3>
+                <p>87%</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

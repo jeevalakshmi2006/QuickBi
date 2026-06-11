@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickBI Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Rubik', sans-serif; transition: all 0.3s ease; }
+        body { display: flex; flex-direction: column; height: 100vh; background: #FADADD; overflow: hidden; }
+        
+        /* Header */
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px; background:#FF69B4; color: white; }
+        .menu-btn { font-size: 24px; cursor: pointer; }
+        .header-left { display: flex; align-items: center; gap: 10px; }
+        .company-name { font-size: 20px; font-weight: bold; }
+        .header-right { display: flex; gap: 15px; align-items: center; }
+        .header-right i { font-size: 20px; cursor: pointer; }
+        
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100vh;
+            background: #FFB6C1;
+            transition: 0.3s ease-in-out;
+            color: white;
+            padding: 10px;
+            z-index: 2;
+        }
+        .sidebar.active { left: 0; }
+        .sidebar-close { cursor: pointer; font-size: 24px; text-align: right; display: block; }
+        .sidebar-box { padding: 12px; margin-bottom: 20px; background: #FF69B4; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold; display: flex; align-items: center; gap: 10px; }
+        .sidebar-box img { width: 20px; height: 20px; }
+        .sidebar-box:hover { box-shadow: 0px 0px 10px 4px rgba(255, 255, 255, 0.7); transform: scale(1.05); }
+        
+        /* Main Section */
+        .main { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 20px; background:#FADADD; }
+        .box { background:#FF69B4; padding: 30px; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 10px; box-shadow: 0 4px 6px rgba(255, 182, 193, 0.5); color: white; font-weight: bold; cursor: pointer; transition: transform 0.2s ease; text-align: center; }
+        .box img { width: 40px; height: 40px; margin-bottom: 10px; }
+        .box:hover { transform: scale(1.05); box-shadow: 0px 0px 15px 4px rgba(255, 20, 147, 0.8); }
+        
+        /* Footer */
+        .footer { text-align: center; padding: 15px; background: #FF69B4; color: white; }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <span class="sidebar-close" onclick="toggleSidebar()">&times;</span>
+        <div class="sidebar-box" onclick="window.location.href='dashboard.html'"><img src="https://img.icons8.com/ios-filled/50/dashboard.png" alt="">Dashboard</div>
+        <div class="sidebar-box" onclick="window.location.href='a&s.html'"><img src="https://img.icons8.com/ios-filled/50/statistics.png" alt="">Analytics & Reports</div>
+        <div class="sidebar-box" onclick="window.location.href='im.html'"><img src="https://img.icons8.com/ios-filled/50/warehouse.png" alt="">Inventory Management</div>
+        <div class="sidebar-box" onclick="window.location.href='s&r.html'"><img src="https://img.icons8.com/ios-filled/50/money-bag.png" alt="">Sales & Revenue</div>
+        <div class="sidebar-box" onclick="window.location.href='c&e.html'"><img src="https://img.icons8.com/?size=100&id=14736&format=png" alt="">Customers & Engagement</div>
+        <div class="sidebar-box" onclick="window.location.href='settings.html'"><img src="https://img.icons8.com/ios-filled/50/settings.png" alt="">Settings</div>
+        <div class="sidebar-box" onclick="window.location.href='index.html'"><img src="https://img.icons8.com/?size=100&id=8119&format=png" alt="">Logout</div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <i class="fas fa-bars menu-btn" onclick="toggleSidebar()"></i>
+            <span class="company-name">QuickBI</span>
+        </div>
+        <div class="header-right">
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-user"></i>
+        </div>
+    </header>
+    
+    <!-- Main Section -->
+    <main class="main">
+        <div class="box" onclick="window.location.href='scanner.html'"><img src="https://img.icons8.com/ios-filled/50/qr-code.png" alt="">Scanner</div>
+        <div class="box" onclick="window.location.href='a&r.html'"><img src="https://img.icons8.com/ios-filled/50/statistics.png" alt="">Analytics & Reports</div>
+        <div class="box" onclick="window.location.href='im.html'"><img src="https://img.icons8.com/ios-filled/50/warehouse.png" alt="">Inventory Management</div>
+        <div class="box" onclick="window.location.href='s&r.html'"><img src="https://img.icons8.com/ios-filled/50/money-bag.png" alt="">Sales & Revenue</div>
+        <div class="box" onclick="window.location.href='c&e.html'"><img src="https://img.icons8.com/?size=100&id=14736&format=png" alt="">Customers & Engagement</div>
+        <div class="box" onclick="window.location.href='settings.html'"><img src="https://img.icons8.com/ios-filled/50/settings.png" alt="">Settings</div>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">QuickBI Dashboard © 2025</footer>
+    
+    <script>
+        function toggleSidebar() {
+            let sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

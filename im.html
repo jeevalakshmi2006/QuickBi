@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management - QuickBI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body { display: flex; flex-direction: column; height: 100vh; background: #FADADD; overflow-y: auto; font-family: 'Rubik', sans-serif; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #FF69B4; color: white; }
+        .header-left { display: flex; align-items: center; gap: 10px; }
+        .company-name { font-size: 22px; font-weight: bold; }
+        .back-btn { font-size: 20px; color: white; cursor: pointer; }
+        .icons { display: flex; gap: 15px; }
+        .icons i { font-size: 22px; cursor: pointer; }
+        
+        .inventory-container { padding: 20px; }
+        .inventory-box { background: #FF69B4; padding: 20px; border-radius: 10px; color: white; text-align: center; margin-bottom: 20px; }
+        .stock-section { display: flex; justify-content: space-around; margin-top: 20px; }
+        .stock-card { background: white; padding: 15px; border-radius: 8px; text-align: center; width: 30%; }
+        .stock-card h3 { margin-bottom: 10px; color: #FF69B4; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; text-align: center; border-bottom: 1px solid #ddd; }
+        th { background: #FF69B4; color: white; }
+        .in-stock { color: green; font-weight: bold; }
+        .low-stock { color: orange; font-weight: bold; }
+        .out-stock { color: red; font-weight: bold; }
+        
+        .btn-container { margin-top: 20px; display: flex; gap: 10px; justify-content: center; }
+        .btn { padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; color: white; }
+        .btn-add { background: green; }
+        .btn-update { background: blue; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <i class="fas fa-arrow-left back-btn" onclick="window.location.href='ds.html'"></i>
+            <span class="company-name">QuickBI</span>
+        </div>
+        <div class="icons">
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-user-circle"></i>
+        </div>
+    </header>
+    
+    <div class="inventory-container">
+        <div class="inventory-box">
+            <h2>Inventory Management</h2>
+            <p>Track and manage your product stock efficiently.</p>
+        </div>
+        
+        <div class="stock-section">
+            <div class="stock-card">
+                <h3>Total Products</h3>
+                <p>1,250</p>
+            </div>
+            <div class="stock-card">
+                <h3>Low Stock Items</h3>
+                <p>45</p>
+            </div>
+            <div class="stock-card">
+                <h3>Out of Stock</h3>
+                <p>12</p>
+            </div>
+        </div>
+        
+        <table>
+            <tr>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Stock Quantity</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Organic Milk</td>
+                <td>Dairy</td>
+                <td>120</td>
+                <td class="in-stock">In Stock</td>
+            </tr>
+            <tr>
+                <td>Brown Rice</td>
+                <td>Grains</td>
+                <td>10</td>
+                <td class="low-stock">Low Stock</td>
+            </tr>
+            <tr>
+                <td>Almond Butter</td>
+                <td>Spreads</td>
+                <td>0</td>
+                <td class="out-stock">Out of Stock</td>
+            </tr>
+        </table>
+        
+        <div class="btn-container">
+            <button class="btn btn-add">Add New Product</button>
+            <button class="btn btn-update">Update Stock</button>
+        </div>
+    </div>
+</body>
+</html>
